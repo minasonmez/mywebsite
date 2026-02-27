@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Blog — Mina Sonmez</title>
-  <meta name="description" content="Blog posts and thoughts from Mina Sonmez — Cognitive Science & Data Science at UC Berkeley."/>
+  <title>Hello World — Mina Sonmez</title>
+  <meta name="description" content="Hello World — the first blog post from Mina Sonmez."/>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -52,7 +52,7 @@
     <div class="px-6 md:px-12 py-5 max-w-7xl mx-auto flex items-center justify-between">
 
       <!-- Logo -->
-      <a href="index.html" class="flex items-center gap-3 text-text-main dark:text-white hover:opacity-80 transition-opacity">
+      <a href="../index.html" class="flex items-center gap-3 text-text-main dark:text-white hover:opacity-80 transition-opacity">
         <div class="text-primary border border-primary/40 p-1">
           <span class="material-symbols-outlined text-2xl block">spa</span>
         </div>
@@ -61,11 +61,10 @@
 
       <!-- Desktop nav -->
       <nav class="hidden md:flex flex-1 justify-end items-center gap-8 font-display">
-        <a class="text-text-main dark:text-gray-200 hover:text-primary hover:underline underline-offset-4 transition-all text-base" href="index.html">Home</a>
-        <a class="text-text-main dark:text-gray-200 hover:text-primary hover:underline underline-offset-4 transition-all text-base" href="index.html#about">About</a>
-        <a class="text-primary font-bold underline underline-offset-4 text-base" href="blog.html">Blog</a>
-        <a class="text-text-main dark:text-gray-200 hover:text-primary hover:underline underline-offset-4 transition-all text-base" href="resume.html">Resume</a>
-        <a class="text-text-main dark:text-gray-200 hover:text-primary hover:underline underline-offset-4 transition-all text-base" href="index.html#contact">Contact</a>
+        <a class="text-text-main dark:text-gray-200 hover:text-primary hover:underline underline-offset-4 transition-all text-base" href="../index.html">Home</a>
+        <a class="text-text-main dark:text-gray-200 hover:text-primary hover:underline underline-offset-4 transition-all text-base" href="../index.html#about">About</a>
+        <a class="text-primary font-bold underline underline-offset-4 text-base" href="../blog.html">Blog</a>
+        <a class="text-text-main dark:text-gray-200 hover:text-primary hover:underline underline-offset-4 transition-all text-base" href="../resume.html">Resume</a>
         <!-- Dark mode toggle -->
         <button id="theme-toggle" class="ml-2 text-text-main dark:text-white hover:text-primary transition-colors" aria-label="Toggle dark mode">
           <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
@@ -81,11 +80,10 @@
 
   <!-- Mobile nav -->
   <div id="mobile-menu" class="md:hidden flex-col gap-4 px-6 py-4 bg-background-light dark:bg-surface-dark border-b border-primary/20 dark:border-white/10 z-40">
-    <a class="text-text-main dark:text-gray-200 hover:text-primary transition-colors text-base" href="index.html">Home</a>
-    <a class="text-text-main dark:text-gray-200 hover:text-primary transition-colors text-base" href="index.html#about">About</a>
-    <a class="text-primary font-bold text-base" href="blog.html">Blog</a>
-    <a class="text-text-main dark:text-gray-200 hover:text-primary transition-colors text-base" href="resume.html">Resume</a>
-    <a class="text-text-main dark:text-gray-200 hover:text-primary transition-colors text-base" href="index.html#contact">Contact</a>
+    <a class="text-text-main dark:text-gray-200 hover:text-primary transition-colors text-base" href="../index.html">Home</a>
+    <a class="text-text-main dark:text-gray-200 hover:text-primary transition-colors text-base" href="../index.html#about">About</a>
+    <a class="text-primary font-bold text-base" href="../blog.html">Blog</a>
+    <a class="text-text-main dark:text-gray-200 hover:text-primary transition-colors text-base" href="../resume.html">Resume</a>
     <button id="theme-toggle-mobile" class="flex items-center gap-2 text-text-main dark:text-white hover:text-primary transition-colors text-base text-left" aria-label="Toggle dark mode">
       <span class="material-symbols-outlined text-base" id="theme-icon-mobile">dark_mode</span>
       <span id="theme-label-mobile">Dark Mode</span>
@@ -93,26 +91,39 @@
   </div>
 
   <!-- ───────────── MAIN ───────────── -->
-  <main class="flex-grow w-full max-w-5xl mx-auto px-6 md:px-12 py-12 md:py-20 flex flex-col">
+  <main class="flex-grow w-full max-w-3xl mx-auto px-6 md:px-12 py-12 md:py-20 flex flex-col">
 
-    <!-- Page heading -->
-    <div class="flex flex-col gap-6 mb-12 border-l-4 border-primary pl-6">
-      <h1 class="text-5xl md:text-6xl font-bold text-primary tracking-tight">Blog</h1>
-      <p class="text-lg text-text-muted italic max-w-2xl">
-        Mina's brain dump.
-      </p>
+    <!-- Back link -->
+    <a href="../blog.html" class="inline-flex items-center gap-1 text-sm text-text-muted dark:text-gray-400 hover:text-primary transition-colors mb-10">
+      <span class="material-symbols-outlined text-base">arrow_back</span>
+      Back to blog
+    </a>
+
+    <!-- Post header -->
+    <div class="border-l-4 border-primary pl-6 mb-10">
+      <span class="text-xs uppercase tracking-widest text-text-muted dark:text-gray-400 block mb-3">Feb 2026</span>
+      <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Hello World</h1>
+      <p class="text-lg text-text-muted dark:text-gray-400 italic">An introduction — why I started writing, and what this blog is for.</p>
     </div>
 
-    <!-- Post list -->
-    <div class="flex flex-col gap-4">
-      <a href="posts/hello-world.html" class="group block border border-primary/20 bg-white p-6 md:p-8 hover:shadow-[4px_4px_0px_0px_rgba(125,79,94,0.2)] transition-all dark:bg-surface-dark">
-        <div class="flex flex-col gap-2">
-          <span class="text-xs uppercase tracking-widest text-text-muted dark:text-gray-400">Feb 2026</span>
-          <h2 class="text-2xl font-bold text-text-main dark:text-white group-hover:text-primary transition-colors">Hello World</h2>
-          <p class="text-text-muted dark:text-gray-400 italic">An introduction — why I started writing, and what this blog is for.</p>
-        </div>
-      </a>
-    </div>
+    <!-- Post body -->
+    <article class="prose max-w-none">
+      <div class="flex flex-col gap-6 text-text-main dark:text-gray-200 leading-relaxed text-lg">
+
+        <p>
+          Hi. Welcome to my corner of the internet. I've been meaning to start a blog for a while — one of those things that lives on the mental to-do list between "learn more about interpretability" and "read that paper from three months ago." But here we are, and here it is.
+        </p>
+
+        <p>
+          I'm not sure exactly what this space will be yet. Probably a mix: notes on things I'm studying, thoughts on research I find interesting, occasional reflections on being a student navigating the intersection of cognitive science and machine learning. Maybe some personal writing too, if the mood strikes.
+        </p>
+
+        <p>
+          I built this site mostly because I wanted somewhere that was <em>mine</em> — not a LinkedIn update, not a tweet, not a form submission into a void. Just a place to think out loud and leave a trace. If you stumbled here, hello. I hope you find something worth reading.
+        </p>
+
+      </div>
+    </article>
 
   </main>
 
@@ -130,11 +141,10 @@
 
       <!-- Nav links -->
       <div class="flex flex-wrap justify-center gap-8 text-sm font-medium uppercase tracking-wide text-text-muted dark:text-gray-400">
-        <a class="hover:text-primary hover:underline underline-offset-4 transition-all" href="index.html">Home</a>
-        <a class="hover:text-primary hover:underline underline-offset-4 transition-all" href="index.html#about">About</a>
-        <a class="hover:text-primary hover:underline underline-offset-4 transition-all" href="blog.html">Blog</a>
-        <a class="hover:text-primary hover:underline underline-offset-4 transition-all" href="resume.html">Resume</a>
-        <a class="hover:text-primary hover:underline underline-offset-4 transition-all" href="index.html#contact">Contact</a>
+        <a class="hover:text-primary hover:underline underline-offset-4 transition-all" href="../index.html">Home</a>
+        <a class="hover:text-primary hover:underline underline-offset-4 transition-all" href="../index.html#about">About</a>
+        <a class="hover:text-primary hover:underline underline-offset-4 transition-all" href="../blog.html">Blog</a>
+        <a class="hover:text-primary hover:underline underline-offset-4 transition-all" href="../resume.html">Resume</a>
       </div>
 
       <div class="text-text-muted/50 dark:text-gray-500 text-xs text-center border-t border-primary/10 dark:border-white/10 pt-6 w-full max-w-md">
