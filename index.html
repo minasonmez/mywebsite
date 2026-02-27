@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Mina Sonmez — Portfolio</title>
+  <meta name="description" content="Portfolio of Mina Sonmez, a Cognitive Science & Data Science student at UC Berkeley passionate about behavioral AI, UX research, and product innovation."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#630018",
+            "primary-light": "#8a1c32",
+            "primary-dark": "#3d000c",
+            "background-light": "#fdf7f8",
+            "background-dark": "#2d0a12",
+            "surface-light": "#ffffff",
+            "surface-dark": "#3d0e19",
+            "text-main": "#3d000c",
+            "text-muted": "#5e2a35",
+            "border-color": "#e0c1c8",
+          },
+          fontFamily: {
+            "serif": ["PT Serif", "serif"]
+          },
+          borderRadius: {
+            "none": "0", "sm": "0.125rem", "DEFAULT": "0.25rem",
+            "md": "0.375rem", "lg": "0.5rem"
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'PT Serif', serif; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Mobile menu */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-white transition-colors duration-200">
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+
+  <!-- ───────────── HEADER ───────────── -->
+  <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-border-color bg-surface-light/95 px-6 py-6 lg:px-40 dark:bg-surface-dark/95 dark:border-red-900/30 backdrop-blur-sm">
+    <a href="#" class="flex items-center gap-3 text-primary dark:text-primary-light hover:opacity-80 transition-opacity">
+      <h2 class="text-text-main dark:text-white text-xl font-bold tracking-tight">Mina Sonmez.</h2>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+      <nav class="flex items-center gap-8">
+        <a class="text-text-main dark:text-gray-200 text-base font-normal hover:text-primary underline decoration-transparent hover:decoration-primary underline-offset-4 transition-all" href="#about">About</a>
+        <a class="text-text-main dark:text-gray-200 text-base font-normal hover:text-primary underline decoration-transparent hover:decoration-primary underline-offset-4 transition-all" href="#skills">Skills</a>
+        <a class="text-text-main dark:text-gray-200 text-base font-normal hover:text-primary underline decoration-transparent hover:decoration-primary underline-offset-4 transition-all" href="#projects">Projects</a>
+        <a class="text-text-main dark:text-gray-200 text-base font-normal hover:text-primary underline decoration-transparent hover:decoration-primary underline-offset-4 transition-all" href="blog.html">Blog</a>
+        <a class="text-text-main dark:text-gray-200 text-base font-normal hover:text-primary underline decoration-transparent hover:decoration-primary underline-offset-4 transition-all" href="resume.html">Resume</a>
+        <a class="text-text-main dark:text-gray-200 text-base font-normal hover:text-primary underline decoration-transparent hover:decoration-primary underline-offset-4 transition-all" href="#contact">Contact</a>
+      </nav>
+      <!-- Dark mode toggle -->
+      <button id="theme-toggle" class="ml-4 text-text-main dark:text-white hover:text-primary transition-colors" aria-label="Toggle dark mode">
+        <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+      </button>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button id="menu-btn" class="md:hidden text-text-main dark:text-white">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </header>
+
+  <!-- Mobile nav dropdown -->
+  <div id="mobile-menu" class="md:hidden flex-col gap-4 px-6 py-4 bg-surface-light dark:bg-surface-dark border-b border-border-color dark:border-red-900/30 z-40">
+    <a class="text-text-main dark:text-gray-200 text-base hover:text-primary transition-colors" href="#about">About</a>
+    <a class="text-text-main dark:text-gray-200 text-base hover:text-primary transition-colors" href="#skills">Skills</a>
+    <a class="text-text-main dark:text-gray-200 text-base hover:text-primary transition-colors" href="#projects">Projects</a>
+    <a class="text-text-main dark:text-gray-200 text-base hover:text-primary transition-colors" href="blog.html">Blog</a>
+    <a class="text-text-main dark:text-gray-200 text-base hover:text-primary transition-colors" href="resume.html">Resume</a>
+    <a class="text-text-main dark:text-gray-200 text-base hover:text-primary transition-colors" href="#contact">Contact</a>
+    <button id="theme-toggle-mobile" class="flex items-center gap-2 text-text-main dark:text-white hover:text-primary transition-colors text-base text-left" aria-label="Toggle dark mode">
+      <span class="material-symbols-outlined text-base" id="theme-icon-mobile">dark_mode</span>
+      <span id="theme-label-mobile">Toggle Theme</span>
+    </button>
+  </div>
+
+  <main class="flex-grow flex flex-col items-center w-full">
+
+    <!-- ───────────── HERO ───────────── -->
+    <section id="about" class="w-full px-6 py-16 lg:px-40 lg:py-24 bg-background-light dark:bg-background-dark">
+      <div class="max-w-[1100px] mx-auto w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+
+          <!-- Text -->
+          <div class="lg:col-span-5 order-2 lg:order-1 flex flex-col gap-6 text-left">
+            <h1 class="text-text-main dark:text-white text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
+              Hi, I'm Mina.
+            </h1>
+            <div class="w-16 h-1 bg-primary mb-2"></div>
+            <h2 class="text-2xl lg:text-3xl font-normal text-text-muted dark:text-rose-300 italic">
+              Researcher &amp; Builder
+            </h2>
+            <p class="text-text-muted dark:text-rose-200/80 text-lg leading-relaxed font-light">
+              I'm a Cognitive Science and Data Science student at UC Berkeley passionate about behavioral AI, UX research, and product innovation. I turn data and human insight into meaningful, user-centered digital experiences.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 pt-6">
+              <a href="#projects" class="flex items-center justify-center bg-primary hover:bg-primary-dark text-white h-12 px-8 text-lg rounded-sm transition-colors border border-primary">
+                View Projects
+              </a>
+              <a href="#contact" class="flex items-center justify-center bg-transparent hover:bg-primary/5 text-text-main dark:text-white border border-text-main dark:border-white h-12 px-8 text-lg rounded-sm transition-colors">
+                Get In Touch
+              </a>
+            </div>
+          </div>
+
+          <!-- Portrait -->
+          <div class="lg:col-span-7 order-1 lg:order-2 w-full flex justify-center lg:justify-end">
+            <div class="relative w-full max-w-[500px] aspect-[4/5] overflow-hidden rounded-sm shadow-xl bg-gray-200">
+              <div class="w-full h-full bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+                style="background-image: url('https://media.licdn.com/dms/image/v2/D4D03AQEJS2ssbitJPg/profile-displayphoto-shrink_800_800/B4DZTfT25jHAAc-/0/1738913313023?e=1750291200&v=beta&t=6Q27PZoNAmyqlKya6DY7iZUlTwW5S-c-2Gxi2MciL0U');"
+                role="img" aria-label="Mina Sonmez portrait">
+              </div>
+              <div class="absolute bottom-0 left-0 w-full bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-sm p-6 border-t border-primary/20">
+                <div class="flex justify-between items-end">
+                  <div>
+                    <p class="text-xs tracking-widest uppercase text-primary font-bold mb-1">Current Focus</p>
+                    <p class="text-lg text-text-main dark:text-white italic">"Understanding how people think, feel, and interact."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── SKILLS / FOCUS AREAS ───────────── -->
+    <section id="skills" class="w-full px-6 py-20 lg:px-40 border-t border-border-color dark:border-red-900/20 bg-white dark:bg-[#25080f]">
+      <div class="max-w-[1100px] mx-auto flex flex-col gap-16">
+        <div class="flex flex-col gap-4 max-w-2xl">
+          <span class="text-primary font-bold tracking-widest text-sm uppercase">Focus Areas</span>
+          <h2 class="text-text-main dark:text-white text-3xl md:text-4xl font-bold tracking-tight">
+            What I Work On
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <div class="group flex flex-col gap-6 border-l-2 border-primary/20 pl-6 hover:border-primary transition-colors duration-300">
+            <div class="size-12 bg-background-light dark:bg-surface-dark flex items-center justify-center text-primary border border-border-color rounded-sm">
+              <span class="material-symbols-outlined">psychology</span>
+            </div>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-text-main dark:text-white text-2xl font-bold group-hover:text-primary transition-colors">Behavioral Research</h3>
+              <p class="text-text-muted dark:text-rose-200/60 leading-relaxed font-light text-lg">
+                Applying cognitive science to understand user behavior and design AI systems centered on human experience.
+              </p>
+            </div>
+          </div>
+
+          <div class="group flex flex-col gap-6 border-l-2 border-primary/20 pl-6 hover:border-primary transition-colors duration-300">
+            <div class="size-12 bg-background-light dark:bg-surface-dark flex items-center justify-center text-primary border border-border-color rounded-sm">
+              <span class="material-symbols-outlined">bar_chart</span>
+            </div>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-text-main dark:text-white text-2xl font-bold group-hover:text-primary transition-colors">Data Analysis</h3>
+              <p class="text-text-muted dark:text-rose-200/60 leading-relaxed font-light text-lg">
+                Using Python, SQL, and tools like Amplitude and Tableau to synthesize data and surface actionable insights.
+              </p>
+            </div>
+          </div>
+
+          <div class="group flex flex-col gap-6 border-l-2 border-primary/20 pl-6 hover:border-primary transition-colors duration-300">
+            <div class="size-12 bg-background-light dark:bg-surface-dark flex items-center justify-center text-primary border border-border-color rounded-sm">
+              <span class="material-symbols-outlined">web</span>
+            </div>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-text-main dark:text-white text-2xl font-bold group-hover:text-primary transition-colors">UX &amp; Product</h3>
+              <p class="text-text-muted dark:text-rose-200/60 leading-relaxed font-light text-lg">
+                Building data-informed digital experiences through UX research, usability analysis, and product thinking.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── PROJECTS ───────────── -->
+    <section id="projects" class="w-full px-6 py-20 lg:px-40 border-t border-border-color dark:border-red-900/20 bg-background-light dark:bg-background-dark">
+      <div class="max-w-[1100px] mx-auto flex flex-col gap-16">
+        <div class="flex flex-col gap-4 max-w-2xl">
+          <span class="text-primary font-bold tracking-widest text-sm uppercase">Selected Work</span>
+          <h2 class="text-text-main dark:text-white text-3xl md:text-4xl font-bold tracking-tight">
+            Projects
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <div class="group flex flex-col gap-4 border border-border-color dark:border-red-900/20 p-6 hover:border-primary dark:hover:border-primary transition-colors duration-300 rounded-sm">
+            <div class="size-10 bg-background-light dark:bg-surface-dark flex items-center justify-center text-primary border border-border-color rounded-sm">
+              <span class="material-symbols-outlined">school</span>
+            </div>
+            <h3 class="text-text-main dark:text-white text-xl font-bold group-hover:text-primary transition-colors">High School Integration App</h3>
+            <p class="text-text-muted dark:text-rose-200/60 leading-relaxed font-light">
+              A mobile/web app supporting immigrant high school students through tailored resources, language support, and mentor matching.
+            </p>
+          </div>
+
+          <div class="group flex flex-col gap-4 border border-border-color dark:border-red-900/20 p-6 hover:border-primary dark:hover:border-primary transition-colors duration-300 rounded-sm">
+            <div class="size-10 bg-background-light dark:bg-surface-dark flex items-center justify-center text-primary border border-border-color rounded-sm">
+              <span class="material-symbols-outlined">public</span>
+            </div>
+            <h3 class="text-text-main dark:text-white text-xl font-bold group-hover:text-primary transition-colors">World Population &amp; Poverty Analysis</h3>
+            <p class="text-text-muted dark:text-rose-200/60 leading-relaxed font-light">
+              Analyzed global population and economic trends using Python and statistical methods to assess poverty and growth patterns.
+            </p>
+          </div>
+
+          <div class="group flex flex-col gap-4 border border-border-color dark:border-red-900/20 p-6 hover:border-primary dark:hover:border-primary transition-colors duration-300 rounded-sm">
+            <div class="size-10 bg-background-light dark:bg-surface-dark flex items-center justify-center text-primary border border-border-color rounded-sm">
+              <span class="material-symbols-outlined">thermostat</span>
+            </div>
+            <h3 class="text-text-main dark:text-white text-xl font-bold group-hover:text-primary transition-colors">Climate Change Analysis</h3>
+            <p class="text-text-muted dark:text-rose-200/60 leading-relaxed font-light">
+              Analyzed a multi-decade dataset of 210 US cities using bootstrap confidence intervals and A/B hypothesis testing in Python.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── CONTACT CTA ───────────── -->
+    <section id="contact" class="w-full px-6 py-24 lg:px-40 bg-primary dark:bg-primary-dark text-white">
+      <div class="max-w-[800px] mx-auto text-center flex flex-col items-center gap-10">
+        <h2 class="text-white text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
+          Let's Start a Conversation
+        </h2>
+        <p class="text-rose-100 text-xl max-w-[600px] font-light">
+          I'm always open to discussing new projects, research opportunities, or creative ideas. Feel free to reach out.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-6 w-full justify-center pt-2">
+          <a href="https://www.linkedin.com/in/mina-sonmez/" target="_blank" rel="noopener"
+            class="flex items-center justify-center gap-2 bg-white text-primary hover:bg-gray-100 h-14 px-10 text-lg font-bold rounded-sm transition-colors shadow-lg">
+            <span class="material-symbols-outlined text-xl">open_in_new</span>
+            Connect on LinkedIn
+          </a>
+          <button id="copy-email-btn"
+            class="flex items-center justify-center gap-2 bg-transparent border border-white text-white hover:bg-white/10 h-14 px-10 text-lg font-bold rounded-sm transition-colors">
+            <span class="material-symbols-outlined text-xl" id="copy-icon">mail</span>
+            <span id="copy-label">Copy Email</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ───────────── FOOTER ───────────── -->
+  <footer class="w-full border-t border-border-color dark:border-red-900/30 bg-background-light dark:bg-background-dark py-12 px-6 lg:px-40">
+    <div class="max-w-[1100px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="flex flex-col gap-2 text-left">
+        <h2 class="text-text-main dark:text-white font-bold text-lg tracking-tight">Mina Sonmez.</h2>
+        <p class="text-text-muted dark:text-gray-500 text-sm">
+          © 2025. Cognitive Science &amp; Data Science @ UC Berkeley.
+        </p>
+      </div>
+      <div class="flex gap-8 text-base font-medium text-text-muted dark:text-rose-200/50">
+        <a class="hover:text-primary transition-colors underline decoration-transparent hover:decoration-primary underline-offset-4" href="#about">About</a>
+        <a class="hover:text-primary transition-colors underline decoration-transparent hover:decoration-primary underline-offset-4" href="#projects">Projects</a>
+        <a class="hover:text-primary transition-colors underline decoration-transparent hover:decoration-primary underline-offset-4" href="blog.html">Blog</a>
+        <a class="hover:text-primary transition-colors underline decoration-transparent hover:decoration-primary underline-offset-4" href="resume.html">Resume</a>
+        <a class="hover:text-primary transition-colors underline decoration-transparent hover:decoration-primary underline-offset-4" href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // ── Dark mode toggle ──
+  const toggle = document.getElementById('theme-toggle');
+  const icon = document.getElementById('theme-icon');
+  const toggleMobile = document.getElementById('theme-toggle-mobile');
+  const iconMobile = document.getElementById('theme-icon-mobile');
+  const labelMobile = document.getElementById('theme-label-mobile');
+  const html = document.documentElement;
+
+  function applyTheme(isDark) {
+    html.classList.toggle('dark', isDark);
+    const iconVal = isDark ? 'light_mode' : 'dark_mode';
+    const labelVal = isDark ? 'Light Mode' : 'Dark Mode';
+    if (icon) icon.textContent = iconVal;
+    if (iconMobile) iconMobile.textContent = iconVal;
+    if (labelMobile) labelMobile.textContent = labelVal;
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }
+
+  // Restore saved preference, else use system preference
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(saved ? saved === 'dark' : prefersDark);
+
+  toggle.addEventListener('click', () => applyTheme(!html.classList.contains('dark')));
+  if (toggleMobile) toggleMobile.addEventListener('click', () => applyTheme(!html.classList.contains('dark')));
+
+  // ── Mobile menu toggle ──
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+
+  // Close mobile menu on link click
+  mobileMenu.querySelectorAll('a').forEach(link =>
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'))
+  );
+
+  // ── Copy email button ──
+  const copyBtn = document.getElementById('copy-email-btn');
+  const copyLabel = document.getElementById('copy-label');
+  const copyIcon = document.getElementById('copy-icon');
+
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText('minasonmez@berkeley.edu').then(() => {
+      copyLabel.textContent = 'Copied!';
+      copyIcon.textContent = 'check_circle';
+      setTimeout(() => {
+        copyLabel.textContent = 'Copy Email';
+        copyIcon.textContent = 'mail';
+      }, 2000);
+    }).catch(() => {
+      // Fallback for browsers that block clipboard without HTTPS
+      window.prompt('Copy this email:', 'minasonmez@berkeley.edu');
+    });
+  });
+
+  // ── Smooth scroll for anchor links ──
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

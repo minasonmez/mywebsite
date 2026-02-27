@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Resume — Mina Sonmez</title>
+  <meta name="description" content="Resume of Mina Sonmez — Cognitive Science & Data Science at UC Berkeley."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary":          "#4a0404",
+            "primary-light":    "#751818",
+            "text-main":        "#2b0505",
+            "text-secondary":   "#5c1e1e",
+            "background-light": "#fcf5f5",
+          },
+          fontFamily: { "serif": ["PT Serif", "serif"] },
+          borderRadius: {
+            "none": "0px", "sm": "0.125rem",
+            "DEFAULT": "0.25rem", "md": "0.375rem", "lg": "0.5rem",
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'PT Serif', serif; }
+    .boxy-pattern {
+      background-color: #fdfbfb;
+      background-image:
+        linear-gradient(#e5e5e5 1px, transparent 1px),
+        linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
+  </style>
+</head>
+<body class="boxy-pattern min-h-screen text-text-main font-serif selection:bg-primary selection:text-white">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+
+  <!-- ───────────── HEADER ───────────── -->
+  <header class="flex items-center justify-between whitespace-nowrap border-b-2 border-primary bg-white px-8 py-6 sticky top-0 z-50">
+    <a href="index.html" class="flex items-center gap-3 text-text-main hover:opacity-80 transition-opacity">
+      <div class="flex h-10 w-10 items-center justify-center border-2 border-primary bg-primary text-white">
+        <span class="material-symbols-outlined text-2xl">article</span>
+      </div>
+      <h2 class="text-text-main text-2xl font-bold tracking-tight uppercase">Mina Sonmez</h2>
+    </a>
+
+    <div class="flex items-center gap-8">
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="text-text-main hover:text-primary transition-colors text-base font-bold uppercase tracking-wider hover:underline underline-offset-4 decoration-2" href="index.html">Home</a>
+        <a class="text-text-main hover:text-primary transition-colors text-base font-bold uppercase tracking-wider hover:underline underline-offset-4 decoration-2" href="blog.html">Blog</a>
+        <a class="text-primary font-bold text-base uppercase tracking-wider underline underline-offset-4 decoration-2" href="resume.html">Resume</a>
+      </nav>
+      <a href="index.html#contact"
+        class="hidden sm:flex h-10 px-6 items-center justify-center border-2 border-primary bg-white text-primary text-sm font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-colors">
+        Contact
+      </a>
+      <!-- Mobile menu button -->
+      <button id="menu-btn" class="md:hidden p-2 border-2 border-primary text-text-main" aria-label="Open menu">
+        <span class="material-symbols-outlined block">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <div id="mobile-menu" class="md:hidden flex-col gap-4 px-8 py-4 bg-white border-b-2 border-primary z-40">
+    <a class="text-text-main hover:text-primary font-bold uppercase tracking-wider text-base" href="index.html">Home</a>
+    <a class="text-text-main hover:text-primary font-bold uppercase tracking-wider text-base" href="blog.html">Blog</a>
+    <a class="text-primary font-bold uppercase tracking-wider text-base underline underline-offset-4" href="resume.html">Resume</a>
+    <a class="text-text-main hover:text-primary font-bold uppercase tracking-wider text-base" href="index.html#contact">Contact</a>
+  </div>
+
+  <!-- ───────────── MAIN ───────────── -->
+  <main class="flex-1 w-full max-w-4xl mx-auto px-4 py-12 flex flex-col gap-8">
+
+    <!-- Page heading + download -->
+    <div class="flex flex-col md:flex-row justify-between items-end gap-6 border-b-2 border-primary pb-6">
+      <div class="flex flex-col gap-2">
+        <h1 class="text-5xl md:text-6xl font-bold text-primary">Resume</h1>
+        <p class="text-text-secondary text-lg italic">Professional experience &amp; skills summary.</p>
+      </div>
+      <a id="download-btn" href="Mina_Sonmez_Resume.pdf" download="Mina_Sonmez_Resume.pdf"
+        class="flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all font-bold uppercase tracking-widest text-sm">
+        <span class="material-symbols-outlined text-lg">download</span>
+        <span>Download PDF</span>
+      </a>
+    </div>
+
+    <!-- Resume content area — fill this in yourself -->
+    <div class="w-full min-h-[600px] border-2 border-primary bg-white p-12 relative shadow-[8px_8px_0px_0px_rgba(74,4,4,1)]">
+      <!-- Corner brackets -->
+      <div class="absolute top-0 left-0  w-4 h-4 border-l-4 border-t-4 border-primary"></div>
+      <div class="absolute top-0 right-0 w-4 h-4 border-r-4 border-t-4 border-primary"></div>
+      <div class="absolute bottom-0 left-0  w-4 h-4 border-l-4 border-b-4 border-primary"></div>
+      <div class="absolute bottom-0 right-0 w-4 h-4 border-r-4 border-b-4 border-primary"></div>
+
+      <!-- ↓ Replace everything inside this div with your resume content ↓ -->
+      <div class="h-full w-full flex flex-col items-center justify-center opacity-40 border-2 border-dashed border-gray-300">
+        <span class="material-symbols-outlined text-6xl text-primary mb-4">edit_document</span>
+        <p class="text-xl font-serif text-text-secondary italic">Resume content coming soon</p>
+        <p class="text-sm mt-2 text-text-secondary">Replace this block with your experience, education, and skills.</p>
+      </div>
+      <!-- ↑ Replace everything above this line ↑ -->
+    </div>
+
+  </main>
+
+</div>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(link =>
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'))
+  );
+</script>
+
+</body>
+</html>
