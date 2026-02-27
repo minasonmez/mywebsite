@@ -82,6 +82,7 @@
         <a class="text-text-main dark:text-gray-200 text-base font-normal hover:text-primary dark:hover:text-primary-light underline decoration-transparent hover:decoration-primary underline-offset-4 transition-all" href="#about">About</a>
         <a class="text-text-main dark:text-gray-200 text-base font-normal hover:text-primary dark:hover:text-primary-light underline decoration-transparent hover:decoration-primary underline-offset-4 transition-all" href="blog.html">Blog</a>
         <a class="text-text-main dark:text-gray-200 text-base font-normal hover:text-primary dark:hover:text-primary-light underline decoration-transparent hover:decoration-primary underline-offset-4 transition-all" href="resume.html">Resume</a>
+        <a class="text-text-main dark:text-gray-200 text-base font-normal hover:text-primary dark:hover:text-primary-light underline decoration-transparent hover:decoration-primary underline-offset-4 transition-all" href="#contact">Contact</a>
       </nav>
       <!-- Dark mode toggle -->
       <button id="theme-toggle" class="ml-4 text-text-muted dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors" aria-label="Toggle dark mode">
@@ -100,6 +101,7 @@
     <a class="text-text-main dark:text-gray-200 text-base hover:text-primary transition-colors" href="#about">About</a>
     <a class="text-text-main dark:text-gray-200 text-base hover:text-primary transition-colors" href="blog.html">Blog</a>
     <a class="text-text-main dark:text-gray-200 text-base hover:text-primary transition-colors" href="resume.html">Resume</a>
+    <a class="text-text-main dark:text-gray-200 text-base hover:text-primary transition-colors" href="#contact">Contact</a>
     <button id="theme-toggle-mobile" class="flex items-center gap-2 text-text-main dark:text-white hover:text-primary transition-colors text-base text-left" aria-label="Toggle dark mode">
       <span class="material-symbols-outlined text-base" id="theme-icon-mobile">dark_mode</span>
       <span id="theme-label-mobile">Toggle Theme</span>
@@ -185,6 +187,50 @@
       </div>
     </section>
 
+    <!-- ─────────────  CONTACT  ───────────── -->
+    <section id="contact" class="w-full px-6 py-10 lg:px-40 border-t border-border-color dark:border-white/10 bg-primary-light/10 dark:bg-primary-dark/10">
+      <div class="max-w-[900px] mx-auto w-full">
+        <p class="text-xs font-bold uppercase tracking-widest text-primary dark:text-primary-light mb-2">leave a note ✉</p>
+        <p class="text-text-muted dark:text-gray-400 text-sm mb-6">informal or formal — say whatever's on your mind</p>
+
+        <form id="contact-form" action="https://formspree.io/f/mjgezbyd" method="POST" class="flex flex-col gap-4 max-w-lg">
+          <input
+            type="text"
+            name="name"
+            placeholder="your name (optional)"
+            class="w-full bg-surface-light dark:bg-surface-dark border border-border-color dark:border-white/10 rounded text-text-main dark:text-white placeholder-text-muted/60 dark:placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-primary px-4 py-2 text-sm"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="your email (if you'd like a reply)"
+            class="w-full bg-surface-light dark:bg-surface-dark border border-border-color dark:border-white/10 rounded text-text-main dark:text-white placeholder-text-muted/60 dark:placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-primary px-4 py-2 text-sm"
+          />
+          <textarea
+            name="message"
+            rows="4"
+            required
+            placeholder="say hi, share a thought, or just drop by..."
+            class="w-full bg-surface-light dark:bg-surface-dark border border-border-color dark:border-white/10 rounded text-text-main dark:text-white placeholder-text-muted/60 dark:placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-primary px-4 py-2 text-sm resize-none"
+          ></textarea>
+          <div>
+            <button
+              type="submit"
+              id="contact-submit"
+              class="px-6 py-2 rounded text-white text-sm font-medium transition-opacity hover:opacity-90"
+              style="background: linear-gradient(90deg, #7b6fff, #f9a0c0);"
+            >send ❀</button>
+            <p id="contact-error" class="mt-2 text-sm text-secondary-dark dark:text-secondary hidden">something went wrong — try again or email me directly.</p>
+          </div>
+        </form>
+
+        <div id="contact-success" class="hidden">
+          <p class="text-lg font-medium text-primary dark:text-primary-light mb-1">thanks for the note ❀</p>
+          <p class="text-text-muted dark:text-gray-400 text-sm">I'll get back to you if you left an email. means a lot that you stopped by.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ───────────── FOOTER ───────────── -->
@@ -195,6 +241,7 @@
         <a class="hover:text-primary dark:hover:text-primary-light transition-colors underline decoration-transparent hover:decoration-primary underline-offset-4" href="#about">About</a>
         <a class="hover:text-primary dark:hover:text-primary-light transition-colors underline decoration-transparent hover:decoration-primary underline-offset-4" href="blog.html">Blog</a>
         <a class="hover:text-primary dark:hover:text-primary-light transition-colors underline decoration-transparent hover:decoration-primary underline-offset-4" href="resume.html">Resume</a>
+        <a class="hover:text-primary dark:hover:text-primary-light transition-colors underline decoration-transparent hover:decoration-primary underline-offset-4" href="#contact">Contact</a>
       </div>
       <p class="text-xs text-text-muted dark:text-gray-500">© 2026 Mina Sonmez.</p>
     </div>
@@ -253,6 +300,39 @@
       window.prompt('Copy this email:', 'minasonmez@berkeley.edu');
     });
   });
+
+  // ── Contact form (AJAX via Formspree) ──
+  const contactForm = document.getElementById('contact-form');
+  const contactSuccess = document.getElementById('contact-success');
+  const contactError = document.getElementById('contact-error');
+  const contactSubmit = document.getElementById('contact-submit');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      contactSubmit.disabled = true;
+      contactSubmit.textContent = 'sending…';
+      contactError.classList.add('hidden');
+
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(contactForm))),
+        });
+        if (res.ok) {
+          contactForm.classList.add('hidden');
+          contactSuccess.classList.remove('hidden');
+        } else {
+          throw new Error('bad response');
+        }
+      } catch {
+        contactError.classList.remove('hidden');
+        contactSubmit.disabled = false;
+        contactSubmit.textContent = 'send ❀';
+      }
+    });
+  }
 
   // ── Smooth scroll for anchor links ──
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
