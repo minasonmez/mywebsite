@@ -18,9 +18,11 @@
             "primary-light":    "#d3d3ff",
             "primary-dark":     "#5040cc",
             "secondary":        "#f9a0c0",
+            "secondary-dark":   "#e06090",
             "accent":           "#a8e6d0",
             "background-light": "#ede9ff",
             "background-dark":  "#1e1a38",
+            "surface-light":    "#f5f2ff",
             "surface-dark":     "#2a2448",
             "text-main":        "#120d30",
             "text-muted":       "#4a4275",
@@ -48,43 +50,43 @@
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
 
   <!-- ───────────── HEADER ───────────── -->
-  <header class="flex items-center justify-between whitespace-nowrap border-b border-primary/20 dark:border-white/10 bg-white dark:bg-surface-dark px-8 py-6 sticky top-0 z-50">
-    <a href="index.html" class="flex items-center gap-3 text-text-main dark:text-white hover:opacity-80 transition-opacity">
-      <div class="flex h-10 w-10 items-center justify-center border border-primary/40 bg-primary text-white">
-        <span class="material-symbols-outlined text-2xl">article</span>
-      </div>
-      <h2 class="text-text-main dark:text-white text-2xl font-bold tracking-tight uppercase">Mina Sonmez</h2>
-    </a>
+  <header class="sticky top-0 z-50 w-full border-b border-primary/20 dark:border-white/10 bg-background-light/95 dark:bg-surface-dark/95 backdrop-blur-sm">
+    <div class="px-6 md:px-12 py-5 max-w-7xl mx-auto flex items-center justify-between">
 
-    <div class="flex items-center gap-8">
-      <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-8">
-        <a class="text-text-main dark:text-gray-200 hover:text-primary transition-colors text-base font-bold uppercase tracking-wider hover:underline underline-offset-4 decoration-2" href="index.html">Home</a>
-        <a class="text-text-main dark:text-gray-200 hover:text-primary transition-colors text-base font-bold uppercase tracking-wider hover:underline underline-offset-4 decoration-2" href="blog.html">Blog</a>
-        <a class="text-primary font-bold text-base uppercase tracking-wider underline underline-offset-4 decoration-2" href="resume.html">Resume</a>
-      </nav>
-      <a href="index.html#contact"
-        class="hidden sm:flex h-10 px-6 items-center justify-center border border-primary/40 bg-white dark:bg-surface-dark text-primary text-sm font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-colors">
-        Contact
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 text-text-main dark:text-white hover:opacity-80 transition-opacity">
+        <div class="text-primary border border-primary/40 p-1">
+          <span class="material-symbols-outlined text-2xl block">spa</span>
+        </div>
+        <h2 class="text-primary text-xl font-bold tracking-tight uppercase">Mina Sonmez</h2>
       </a>
-      <!-- Dark mode toggle -->
-      <button id="theme-toggle" class="hidden md:block text-text-main dark:text-white hover:text-primary transition-colors" aria-label="Toggle dark mode">
-        <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
-      </button>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex flex-1 justify-end items-center gap-8">
+        <a class="text-text-main dark:text-gray-200 hover:text-primary hover:underline underline-offset-4 transition-all text-base" href="index.html">Home</a>
+        <a class="text-text-main dark:text-gray-200 hover:text-primary hover:underline underline-offset-4 transition-all text-base" href="index.html#about">About</a>
+        <a class="text-text-main dark:text-gray-200 hover:text-primary hover:underline underline-offset-4 transition-all text-base" href="blog.html">Blog</a>
+        <a class="text-primary font-bold underline underline-offset-4 text-base" href="resume.html">Resume</a>
+        <!-- Dark mode toggle -->
+        <button id="theme-toggle" class="ml-2 text-text-main dark:text-white hover:text-primary transition-colors" aria-label="Toggle dark mode">
+          <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+        </button>
+      </nav>
+
       <!-- Mobile menu button -->
-      <button id="menu-btn" class="md:hidden p-2 border border-primary/40 text-text-main dark:text-white" aria-label="Open menu">
+      <button id="menu-btn" class="md:hidden text-text-main dark:text-white p-2 border border-primary/40" aria-label="Open menu">
         <span class="material-symbols-outlined block">menu</span>
       </button>
     </div>
   </header>
 
   <!-- Mobile nav -->
-  <div id="mobile-menu" class="md:hidden flex-col gap-4 px-8 py-4 bg-white dark:bg-surface-dark border-b border-primary/20 dark:border-white/10 z-40">
-    <a class="text-text-main dark:text-gray-200 hover:text-primary font-bold uppercase tracking-wider text-base" href="index.html">Home</a>
-    <a class="text-text-main dark:text-gray-200 hover:text-primary font-bold uppercase tracking-wider text-base" href="blog.html">Blog</a>
-    <a class="text-primary font-bold uppercase tracking-wider text-base underline underline-offset-4" href="resume.html">Resume</a>
-    <a class="text-text-main dark:text-gray-200 hover:text-primary font-bold uppercase tracking-wider text-base" href="index.html#contact">Contact</a>
-    <button id="theme-toggle-mobile" class="flex items-center gap-2 text-text-main dark:text-white hover:text-primary transition-colors text-base text-left font-bold uppercase tracking-wider" aria-label="Toggle dark mode">
+  <div id="mobile-menu" class="md:hidden flex-col gap-4 px-6 py-4 bg-background-light dark:bg-surface-dark border-b border-primary/20 dark:border-white/10 z-40">
+    <a class="text-text-main dark:text-gray-200 hover:text-primary transition-colors text-base" href="index.html">Home</a>
+    <a class="text-text-main dark:text-gray-200 hover:text-primary transition-colors text-base" href="index.html#about">About</a>
+    <a class="text-text-main dark:text-gray-200 hover:text-primary transition-colors text-base" href="blog.html">Blog</a>
+    <a class="text-primary font-bold text-base" href="resume.html">Resume</a>
+    <button id="theme-toggle-mobile" class="flex items-center gap-2 text-text-main dark:text-white hover:text-primary transition-colors text-base text-left" aria-label="Toggle dark mode">
       <span class="material-symbols-outlined text-base" id="theme-icon-mobile">dark_mode</span>
       <span id="theme-label-mobile">Dark Mode</span>
     </button>
@@ -93,16 +95,9 @@
   <!-- ───────────── MAIN ───────────── -->
   <main class="flex-1 w-full max-w-4xl mx-auto px-4 py-12 flex flex-col gap-8">
 
-    <!-- Page heading + download -->
-    <div class="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-primary/20 pb-6">
-      <div class="flex flex-col gap-2">
-        <h1 class="text-5xl md:text-6xl font-bold text-primary">Resume</h1>
-      </div>
-      <a id="download-btn" href="Mina_Sonmez_Resume.pdf" download="Mina_Sonmez_Resume.pdf"
-        class="flex items-center gap-2 px-6 py-3 border border-primary/40 text-primary hover:bg-primary hover:text-white transition-all font-bold uppercase tracking-widest text-sm">
-        <span class="material-symbols-outlined text-lg">download</span>
-        <span>Download PDF</span>
-      </a>
+    <!-- Page heading -->
+    <div class="border-b border-primary/20 pb-6">
+      <h1 class="text-5xl md:text-6xl font-bold text-primary">Resume</h1>
     </div>
 
     <!-- PDF embed -->
