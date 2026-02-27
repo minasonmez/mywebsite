@@ -14,11 +14,11 @@
       theme: {
         extend: {
           colors: {
-            "primary":          "#4a0404",
-            "primary-light":    "#751818",
-            "text-main":        "#2b0505",
-            "text-secondary":   "#5c1e1e",
-            "background-light": "#fcf5f5",
+            "primary":          "#7d4f5e",
+            "primary-light":    "#9b6b7a",
+            "text-main":        "#2c2325",
+            "text-secondary":   "#6b5a5f",
+            "background-light": "#faf9f8",
           },
           fontFamily: { "serif": ["PT Serif", "serif"] },
           borderRadius: {
@@ -49,9 +49,9 @@
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
 
   <!-- ───────────── HEADER ───────────── -->
-  <header class="flex items-center justify-between whitespace-nowrap border-b-2 border-primary bg-white px-8 py-6 sticky top-0 z-50">
+  <header class="flex items-center justify-between whitespace-nowrap border-b border-primary/20 bg-white px-8 py-6 sticky top-0 z-50">
     <a href="index.html" class="flex items-center gap-3 text-text-main hover:opacity-80 transition-opacity">
-      <div class="flex h-10 w-10 items-center justify-center border-2 border-primary bg-primary text-white">
+      <div class="flex h-10 w-10 items-center justify-center border border-primary/40 bg-primary text-white">
         <span class="material-symbols-outlined text-2xl">article</span>
       </div>
       <h2 class="text-text-main text-2xl font-bold tracking-tight uppercase">Mina Sonmez</h2>
@@ -65,18 +65,18 @@
         <a class="text-primary font-bold text-base uppercase tracking-wider underline underline-offset-4 decoration-2" href="resume.html">Resume</a>
       </nav>
       <a href="index.html#contact"
-        class="hidden sm:flex h-10 px-6 items-center justify-center border-2 border-primary bg-white text-primary text-sm font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-colors">
+        class="hidden sm:flex h-10 px-6 items-center justify-center border border-primary/40 bg-white text-primary text-sm font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-colors">
         Contact
       </a>
       <!-- Mobile menu button -->
-      <button id="menu-btn" class="md:hidden p-2 border-2 border-primary text-text-main" aria-label="Open menu">
+      <button id="menu-btn" class="md:hidden p-2 border border-primary/40 text-text-main" aria-label="Open menu">
         <span class="material-symbols-outlined block">menu</span>
       </button>
     </div>
   </header>
 
   <!-- Mobile nav -->
-  <div id="mobile-menu" class="md:hidden flex-col gap-4 px-8 py-4 bg-white border-b-2 border-primary z-40">
+  <div id="mobile-menu" class="md:hidden flex-col gap-4 px-8 py-4 bg-white border-b border-primary/20 z-40">
     <a class="text-text-main hover:text-primary font-bold uppercase tracking-wider text-base" href="index.html">Home</a>
     <a class="text-text-main hover:text-primary font-bold uppercase tracking-wider text-base" href="blog.html">Blog</a>
     <a class="text-primary font-bold uppercase tracking-wider text-base underline underline-offset-4" href="resume.html">Resume</a>
@@ -87,25 +87,25 @@
   <main class="flex-1 w-full max-w-4xl mx-auto px-4 py-12 flex flex-col gap-8">
 
     <!-- Page heading + download -->
-    <div class="flex flex-col md:flex-row justify-between items-end gap-6 border-b-2 border-primary pb-6">
+    <div class="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-primary/20 pb-6">
       <div class="flex flex-col gap-2">
         <h1 class="text-5xl md:text-6xl font-bold text-primary">Resume</h1>
         <p class="text-text-secondary text-lg italic">Professional experience &amp; skills summary.</p>
       </div>
       <a id="download-btn" href="Mina_Sonmez_Resume.pdf" download="Mina_Sonmez_Resume.pdf"
-        class="flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all font-bold uppercase tracking-widest text-sm">
+        class="flex items-center gap-2 px-6 py-3 border border-primary/40 text-primary hover:bg-primary hover:text-white transition-all font-bold uppercase tracking-widest text-sm">
         <span class="material-symbols-outlined text-lg">download</span>
         <span>Download PDF</span>
       </a>
     </div>
 
     <!-- Resume content area — fill this in yourself -->
-    <div class="w-full min-h-[600px] border-2 border-primary bg-white p-12 relative shadow-[8px_8px_0px_0px_rgba(74,4,4,1)]">
+    <div class="w-full min-h-[600px] border border-primary/20 bg-white p-12 relative shadow-[6px_6px_0px_0px_rgba(125,79,94,0.15)]">
       <!-- Corner brackets -->
-      <div class="absolute top-0 left-0  w-4 h-4 border-l-4 border-t-4 border-primary"></div>
-      <div class="absolute top-0 right-0 w-4 h-4 border-r-4 border-t-4 border-primary"></div>
-      <div class="absolute bottom-0 left-0  w-4 h-4 border-l-4 border-b-4 border-primary"></div>
-      <div class="absolute bottom-0 right-0 w-4 h-4 border-r-4 border-b-4 border-primary"></div>
+      <div class="absolute top-0 left-0  w-4 h-4 border-l-2 border-t-2 border-primary/30"></div>
+      <div class="absolute top-0 right-0 w-4 h-4 border-r-2 border-t-2 border-primary/30"></div>
+      <div class="absolute bottom-0 left-0  w-4 h-4 border-l-2 border-b-2 border-primary/30"></div>
+      <div class="absolute bottom-0 right-0 w-4 h-4 border-r-2 border-b-2 border-primary/30"></div>
 
       <!-- ↓ Replace everything inside this div with your resume content ↓ -->
       <div class="h-full w-full flex flex-col items-center justify-center opacity-40 border-2 border-dashed border-gray-300">
