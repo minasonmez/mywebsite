@@ -108,7 +108,24 @@
               I'm a Cognitive Science and Data Science student at UC Berkeley passionate about behavioral AI, UX research, and product innovation. I turn data and human insight into meaningful, user-centered digital experiences.
             </p>
 
-          </div>
+            <!-- Social icons -->
+            <div class="flex items-center gap-4 pt-2">
+              <!-- LinkedIn -->
+              <a href="https://www.linkedin.com/in/mina-sonmez/" target="_blank" rel="noopener"
+                aria-label="LinkedIn"
+                class="text-primary/70 hover:text-primary transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 448 512">
+                  <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/>
+                </svg>
+              </a>
+              <!-- Email copy -->
+              <button id="copy-email-btn" aria-label="Copy email address"
+                class="text-primary/70 hover:text-primary transition-colors">
+                <span class="material-symbols-outlined" style="font-size:28px" id="copy-icon">mail</span>
+              </button>
+              <!-- Copied tooltip -->
+              <span id="copy-label" class="text-sm text-text-muted dark:text-gray-400 italic opacity-0 transition-opacity duration-300">Copied!</span>
+            </div>
 
           <!-- Portrait -->
           <div class="lg:col-span-7 order-1 lg:order-2 w-full flex justify-center lg:justify-end">
@@ -124,28 +141,6 @@
       </div>
     </section>
 
-
-    <!-- ───────────── CONTACT ICONS ───────────── -->
-    <section id="contact" class="w-full px-6 py-16 lg:px-40 border-t border-border-color dark:border-red-900/10">
-      <div class="max-w-[1100px] mx-auto flex items-center gap-6">
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/mina-sonmez/" target="_blank" rel="noopener"
-          aria-label="LinkedIn"
-          class="flex items-center justify-center w-11 h-11 rounded-sm border border-border-color hover:border-primary hover:text-primary text-text-muted dark:text-gray-400 dark:border-gray-600 dark:hover:border-primary-light dark:hover:text-primary-light transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
-            <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v96a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0ZM88,88a12,12,0,1,1,12,12A12,12,0,0,1,88,88Zm136,24v96a8,8,0,0,1-16,0V152a28,28,0,0,0-56,0v56a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A44,44,0,0,1,224,152Z"/>
-          </svg>
-        </a>
-        <!-- Email copy -->
-        <button id="copy-email-btn"
-          aria-label="Copy email address"
-          class="flex items-center justify-center w-11 h-11 rounded-sm border border-border-color hover:border-primary hover:text-primary text-text-muted dark:text-gray-400 dark:border-gray-600 dark:hover:border-primary-light dark:hover:text-primary-light transition-colors">
-          <span class="material-symbols-outlined text-xl" id="copy-icon">mail</span>
-        </button>
-        <!-- Copied tooltip -->
-        <span id="copy-label" class="text-sm text-text-muted dark:text-gray-400 italic opacity-0 transition-opacity duration-300">Copied!</span>
-      </div>
-    </section>
 
   </main>
 
