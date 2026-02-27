@@ -200,19 +200,28 @@
             placeholder="your name (optional)"
             class="w-full bg-surface-light dark:bg-surface-dark border border-border-color dark:border-white/10 rounded text-text-main dark:text-white placeholder-text-muted/60 dark:placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-primary px-4 py-2 text-sm"
           />
-          <input
-            type="email"
-            name="email"
-            placeholder="your email (if you'd like a reply)"
-            class="w-full bg-surface-light dark:bg-surface-dark border border-border-color dark:border-white/10 rounded text-text-main dark:text-white placeholder-text-muted/60 dark:placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-primary px-4 py-2 text-sm"
-          />
-          <textarea
-            name="message"
-            rows="4"
-            required
-            placeholder="say hi, share a thought, or just drop by..."
-            class="w-full bg-surface-light dark:bg-surface-dark border border-border-color dark:border-white/10 rounded text-text-main dark:text-white placeholder-text-muted/60 dark:placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-primary px-4 py-2 text-sm resize-none"
-          ></textarea>
+          <div>
+            <input
+              type="email"
+              id="contact-email"
+              name="email"
+              placeholder="your email (if you'd like a reply)"
+              class="w-full bg-surface-light dark:bg-surface-dark border border-border-color dark:border-white/10 rounded text-text-main dark:text-white placeholder-text-muted/60 dark:placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-primary px-4 py-2 text-sm"
+            />
+            <p id="email-error" class="mt-1 text-xs text-secondary-dark dark:text-secondary hidden">please enter a valid email address.</p>
+          </div>
+          <div>
+            <textarea
+              name="message"
+              id="contact-message"
+              rows="4"
+              required
+              maxlength="1000"
+              placeholder="say hi, share a thought, or just drop by..."
+              class="w-full bg-surface-light dark:bg-surface-dark border border-border-color dark:border-white/10 rounded text-text-main dark:text-white placeholder-text-muted/60 dark:placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-primary px-4 py-2 text-sm resize-none"
+            ></textarea>
+            <p id="char-count" class="text-right text-xs text-text-muted dark:text-gray-500 mt-0.5">0 / 1000</p>
+          </div>
           <div>
             <button
               type="submit"
@@ -221,6 +230,7 @@
               style="background: linear-gradient(90deg, #7b6fff, #f9a0c0);"
             >send ❀</button>
             <p id="contact-error" class="mt-2 text-sm text-secondary-dark dark:text-secondary hidden">something went wrong — try again or email me directly.</p>
+            <p id="cooldown-msg" class="mt-2 text-sm text-text-muted dark:text-gray-400 hidden"></p>
           </div>
         </form>
 
@@ -306,13 +316,55 @@
   const contactSuccess = document.getElementById('contact-success');
   const contactError = document.getElementById('contact-error');
   const contactSubmit = document.getElementById('contact-submit');
+  const contactEmailInput = document.getElementById('contact-email');
+  const contactMessage = document.getElementById('contact-message');
+  const charCount = document.getElementById('char-count');
+  const emailError = document.getElementById('email-error');
+  const cooldownMsg = document.getElementById('cooldown-msg');
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const COOLDOWN_MS = 5 * 60 * 1000;
+
+  if (contactMessage) {
+    contactMessage.addEventListener('input', () => {
+      charCount.textContent = `${contactMessage.value.length} / 1000`;
+    });
+  }
 
   if (contactForm) {
+    // Enforce cooldown on page load
+    const lastSent = parseInt(localStorage.getItem('contact_last_sent') || '0', 10);
+    if (Date.now() - lastSent < COOLDOWN_MS) {
+      const remaining = Math.ceil((COOLDOWN_MS - (Date.now() - lastSent)) / 60000);
+      contactSubmit.disabled = true;
+      cooldownMsg.textContent = `you can send another message in ${remaining} min.`;
+      cooldownMsg.classList.remove('hidden');
+    }
+
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // Cooldown check
+      const last = parseInt(localStorage.getItem('contact_last_sent') || '0', 10);
+      if (Date.now() - last < COOLDOWN_MS) {
+        const remaining = Math.ceil((COOLDOWN_MS - (Date.now() - last)) / 60000);
+        cooldownMsg.textContent = `you can send another message in ${remaining} min.`;
+        cooldownMsg.classList.remove('hidden');
+        return;
+      }
+
+      // Email validation
+      const emailVal = contactEmailInput.value.trim();
+      if (emailVal && !EMAIL_RE.test(emailVal)) {
+        emailError.classList.remove('hidden');
+        contactEmailInput.focus();
+        return;
+      }
+      emailError.classList.add('hidden');
+
       contactSubmit.disabled = true;
       contactSubmit.textContent = 'sending…';
       contactError.classList.add('hidden');
+      cooldownMsg.classList.add('hidden');
 
       try {
         const res = await fetch(contactForm.action, {
@@ -321,6 +373,7 @@
           body: JSON.stringify(Object.fromEntries(new FormData(contactForm))),
         });
         if (res.ok) {
+          localStorage.setItem('contact_last_sent', Date.now().toString());
           contactForm.classList.add('hidden');
           contactSuccess.classList.remove('hidden');
         } else {
@@ -332,6 +385,8 @@
         contactSubmit.textContent = 'send ❀';
       }
     });
+
+    contactEmailInput.addEventListener('input', () => emailError.classList.add('hidden'));
   }
 
   // ── Smooth scroll for anchor links ──
